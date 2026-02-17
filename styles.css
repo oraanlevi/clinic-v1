@@ -2689,16 +2689,58 @@ img { max-width: 100%; height: auto; display: block; }
     margin-bottom: 12px;
   }
 }
+/* ===============================
+   CLEAN MOBILE STACKED HEADER
+   =============================== */
+
 @media (max-width: 900px) {
-  .mobile-drawer .nav-links a.active {
-    background: rgba(212, 238, 206, 0.35);
-    border-radius: 10px;
-    border-bottom: none;
-    font-weight: 700;
+
+  /* Header container stacks */
+  .site-header .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 
-  .mobile-drawer .lang-toggle a.active {
-    font-weight: 700;
-    border-bottom: 2px solid #d4eece;
+  /* Navigation becomes stacked */
+  .nav-links {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+
+  .nav-links a {
+    padding: 6px 8px;
+    font-size: 14px;
+  }
+
+  /* Dropdown menu behaves normally */
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    padding-left: 10px;
+  }
+
+  /* Right section stacks */
+  .header-right {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+
+  /* Languages smaller */
+  .lang-toggle a {
+    font-size: 13px;
+  }
+
+  /* CTA full width for visibility */
+  .header-cta {
+    width: 100%;
+    text-align: center;
+    margin-top: 6px;
   }
 }
+
