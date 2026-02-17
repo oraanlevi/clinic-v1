@@ -2689,3 +2689,16 @@ img { max-width: 100%; height: auto; display: block; }
     margin-bottom: 12px;
   }
 }
+@media (max-width: 900px) {
+  .mobile-drawer .nav-links a.active {
+    background: rgba(212, 238, 206, 0.35);
+    border-radius: 10px;
+    border-bottom: none;
+    font-weight: 700;
+  }
+
+  .mobile-drawer .lang-toggle a.active {
+    font-weight: 700;
+    border-bottom: 2px solid #d4eece;
+  }
+}
