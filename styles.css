@@ -2550,3 +2550,142 @@ h1, h2, h3{
     white-space: nowrap; /* keep CTA on one line */
   }
 }
+/* ============================
+   MOBILE FIX PACK
+   Paste at bottom of styles.css
+   ============================ */
+
+/* stop sideways scrolling */
+html, body { overflow-x: hidden; }
+
+/* make images behave */
+img { max-width: 100%; height: auto; display: block; }
+
+/* containers breathe on phone */
+@media (max-width: 900px) {
+  .container { padding-left: 16px; padding-right: 16px; }
+}
+
+/* ---------- HEADER ---------- */
+@media (max-width: 900px) {
+  .site-header .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* allow wrapping on mobile (you forced no-wrap earlier) */
+  .site-header .nav-links,
+  .site-header .header-right {
+    flex-wrap: wrap;
+    white-space: normal;
+  }
+
+  .nav-links {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+  }
+
+  .nav-links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 10px;
+  }
+
+  /* dropdown should not overflow screen */
+  .dropdown-menu {
+    position: static;
+    min-width: unset;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .header-right {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .lang-toggle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* CTA becomes full-width button on phone */
+  .header-cta {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ---------- HERO / GRIDS ---------- */
+@media (max-width: 900px) {
+  /* common grid patterns */
+  .hero-grid,
+  .booking-hero-grid,
+  .contact-hero-grid,
+  .home-two-col,
+  .grid,
+  .home-location-grid,
+  .home-services-grid {
+    display: block !important;
+  }
+
+  /* spacing between stacked blocks */
+  .hero-left, .hero-right,
+  .booking-hero-left, .booking-hero-right,
+  .contact-left, .contact-right {
+    width: 100%;
+  }
+
+  .hero-title { font-size: 34px; line-height: 1.1; }
+  .page-title { font-size: 34px; line-height: 1.1; }
+
+  /* hero image/cards should never overflow */
+  .hero-image-wrap,
+  .hero-right,
+  .hero-image-circle,
+  .hero-card {
+    max-width: 100%;
+  }
+
+  /* if your hero cards are absolutely positioned, this makes them stack */
+  .hero-card {
+    position: static !important;
+    margin-top: 12px;
+  }
+}
+
+/* ---------- SERVICES CARDS ---------- */
+@media (max-width: 900px) {
+  .card { width: 100%; }
+  .service-group .grid { display: block !important; }
+  .service-group .card { margin-bottom: 16px; }
+}
+
+/* ---------- BOOKING TABS ---------- */
+@media (max-width: 900px) {
+  .pay-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .pay-tab {
+    flex: 1 1 auto;
+  }
+
+  .pay-mini-grid {
+    display: block !important;
+  }
+
+  .pay-mini-card {
+    margin-bottom: 12px;
+  }
+}
