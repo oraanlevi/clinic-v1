@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Visit | Private Medical Clinic</title>
+
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div id="site-header"></div>
+
+<!-- HEADER -->
+<!--<header class="site-header">
+  <div class="container header-inner">
+
+    <a class="brand" href="index.html">
+      Private Medical Clinic <span class="brand-dot">•</span><span class="brand-sub">Italy</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="index.html" class="nav-item active">Home</a>
+
+      <div class="nav-item dropdown">
+        <a href="services.html" class="dropdown-toggle">Services ▾</a>
+
+        <div class="dropdown-menu">
+          <a href="home-hotel-visits.html">Home &amp; Hotel Visits</a>
+          <a href="medical-certificates.html">Medical Certificates</a>
+          <a href="telemedicine.html">Telemedicine</a>
+          <a href="clinic-visits.html">Clinic Visits (GP)</a>
+          <a href="wellness-specialty.html">Wellness &amp; Specialty Care</a>
+          <a href="diagnostic-testing.html">Diagnostic &amp; Testing</a>
+          <a href="preventive-checkups.html">Preventive Medicine</a>
+        </div>
+      </div>
+
+      <a href="how-it-works.html" class="nav-item">How it works</a>
+      <a href="telemedicine.html" class="nav-item">Telemedicine</a>
+      <a href="about.html" class="nav-item">About</a>
+      <a href="contact.html" class="nav-item">Contact</a>
+    </nav>
+
+     HEADER LANGUAGE 
+
+    <div class="header-right">
+      <div class="lang-toggle">
+        <a href="../en/index.html" class="lang-item active">EN</a>
+        <a href="../it/index.html" class="lang-item">IT</a>
+        <a href="../es/index.html" class="lang-item">ES</a>
+      <a href="../FR/index.html" class="lang-item">FR</a>
+
+      </div>
+
+      <a href="book-a-visit.html" class="header-cta">Book a Visit</a>
+    </div>
+
+  </div>
+</header> -->
+
+<!-- HERO -->
+<section class="booking-hero booking-page">
+  <div class="container">
+    <div class="booking-hero-grid">
+
+      <!-- LEFT -->
+      <div class="booking-hero-left">
+        <p class="eyebrow">Fast access to medical care in Italy.</p>
+
+        <h1 class="page-title">Book a Visit</h1>
+
+        <p class="page-subtitle">
+          Choose your service and pay securely online. Prefer assistance?
+          Send a request and our team will contact you immediately.
+        </p>
+
+        <div class="booking-trust-row">
+          <div class="trust-pill"><i class="fa-solid fa-clock"></i> 24/7 Availability</div>
+          <div class="trust-pill"><i class="fa-solid fa-language"></i> EN / IT / ES</div>
+          <div class="trust-pill"><i class="fa-solid fa-location-dot"></i> Multiple Cities</div>
+        </div>
+
+        <!-- SMALL CONTACT STRIP -->
+        <div class="booking-contact-strip">
+          <a class="strip-link" href="tel:+390000000000">
+            <i class="fa-solid fa-phone"></i> Call
+          </a>
+          <a class="strip-link" href="https://wa.me/390000000000" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+          <a class="strip-link" href="mailto:bookings@meditalia.com">
+            <i class="fa-solid fa-envelope"></i> Email
+          </a>
+        </div>
+
+        <div class="booking-helper-card">
+          <p class="helper-title">Need help choosing?</p>
+          <p class="helper-text">
+            If you’re not sure which option to book (city, urgency, or visit type),
+            submit the request form and we’ll guide you.
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="booking-hero-right">
+
+        <!-- PAY CARD -->
+        <div class="pay-card">
+          <h2 class="pay-title">Pay & Book</h2>
+          <p class="pay-subtitle">Secure online payment via Stripe.</p>
+
+          <!-- Tabs -->
+          <div class="pay-tabs">
+            <button class="pay-tab active" type="button" data-tab="tab-telemedicine">Telemedicine</button>
+            <button class="pay-tab" type="button" data-tab="tab-clinic">Clinic</button>
+            <button class="pay-tab" type="button" data-tab="tab-home">Home / Hotel</button>
+          </div>
+
+          <!-- TELEMEDICINE -->
+          <div class="pay-tab-panel active" id="tab-telemedicine">
+            <div class="pay-focus-card">
+              <div>
+                <p class="pay-name">Telemedicine Consultation</p>
+                <p class="pay-desc">Video or phone consultation</p>
+              </div>
+
+              <div class="pay-focus-right">
+                <p class="pay-price"><span>€100</span></p>
+                <a class="pay-btn primary" href="YOUR_STRIPE_TELEMEDICINE_LINK" target="_blank">
+                  Continue
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CLINIC -->
+          <div class="pay-tab-panel" id="tab-clinic">
+            <div class="pay-focus-card">
+              <div>
+                <p class="pay-name">GP Visit in Clinic</p>
+                <p class="pay-desc">In-person consultation at the clinic</p>
+              </div>
+
+              <div class="pay-focus-right">
+                <p class="pay-price"><span>€80–€150</span></p>
+                <a class="pay-btn primary" href="YOUR_STRIPE_GP_CLINIC_LINK" target="_blank">
+                  Continue
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- HOME -->
+          <div class="pay-tab-panel" id="tab-home">
+            <p class="pay-mini-title">Select a home visit type</p>
+
+            <div class="pay-mini-grid">
+              <a class="pay-mini-card" href="YOUR_STRIPE_HOMEVISIT_DAY_LINK" target="_blank">
+                <div class="pay-mini-top">
+                  <p class="pay-name">Daytime Home Visit</p>
+                  <p class="pay-desc">Doctor visit at your location</p>
+                </div>
+                <div class="pay-mini-bottom">
+                  <span class="pay-price">€190–€300</span>
+                  <span class="pay-mini-cta">Continue →</span>
+                </div>
+              </a>
+
+              <a class="pay-mini-card" href="YOUR_STRIPE_HOMEVISIT_NIGHT_LINK" target="_blank">
+                <div class="pay-mini-top">
+                  <p class="pay-name">Night / Holidays</p>
+                  <p class="pay-desc">Urgent / after-hours visit</p>
+                </div>
+                <div class="pay-mini-bottom">
+                  <span class="pay-price">€250–€350+</span>
+                  <span class="pay-mini-cta">Continue →</span>
+                </div>
+              </a>
+
+              <a class="pay-mini-card" href="YOUR_STRIPE_PEDIATRIC_LINK" target="_blank">
+                <div class="pay-mini-top">
+                  <p class="pay-name">Pediatric Visit</p>
+                  <p class="pay-desc">Doctor visit for children</p>
+                </div>
+                <div class="pay-mini-bottom">
+                  <span class="pay-price">€250–€350</span>
+                  <span class="pay-mini-cta">Continue →</span>
+                </div>
+              </a>
+
+              <a class="pay-mini-card outline" href="YOUR_STRIPE_SPECIALIST_LINK" target="_blank">
+                <div class="pay-mini-top">
+                  <p class="pay-name">Specialist Visit</p>
+                  <p class="pay-desc">Reserve specialist consultation</p>
+                </div>
+                <div class="pay-mini-bottom">
+                  <span class="pay-price">€250–€400+</span>
+                  <span class="pay-mini-cta">Reserve →</span>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="pay-notes">
+            <p class="pay-note">
+              Pricing may vary based on city, urgency, time of day, distance, and language support.
+            </p>
+            <p class="pay-note">
+              A deposit may be required at booking, with the remaining balance due after the visit.
+              Rescheduling and cancellation may be available up to 1 hour before the appointment.
+            </p>
+          </div>
+        </div>
+
+        <!-- REQUEST FORM -->
+        <div class="request-card">
+          <div class="request-head">
+            <h2 class="request-title">Request Assistance</h2>
+            <p class="request-subtitle">We will contact you as soon as possible.</p>
+          </div>
+
+          <form class="request-form" action="https://formspree.io/f/your-form-id" method="POST">
+            <div class="request-field">
+              <input type="text" name="name" placeholder="Name and Surname" required />
+            </div>
+
+            <div class="request-row">
+              <div class="request-field">
+                <input type="email" name="email" placeholder="Email" required />
+              </div>
+
+              <div class="request-field">
+                <input type="text" name="prefix" placeholder="Prefix (eg: +1)" />
+              </div>
+
+              <div class="request-field">
+                <input type="tel" name="phone" placeholder="Phone Number" required />
+              </div>
+            </div>
+
+            <div class="request-field">
+              <select name="service" required>
+                <option value="" selected disabled>What service do you need?</option>
+                <option>Telemedicine</option>
+                <option>Clinic Visit (GP)</option>
+                <option>Home Visit (Daytime)</option>
+                <option>Home Visit (Night / Holidays)</option>
+                <option>Pediatric Visit</option>
+                <option>Specialist Visit</option>
+                <option>Not sure (help me choose)</option>
+              </select>
+            </div>
+
+            <div class="request-field">
+              <select name="city">
+                <option value="" selected disabled>Preferred City</option>
+                <option>Rome</option>
+                <option>Milan</option>
+                <option>Florence</option>
+                <option>Venice</option>
+                <option>Naples</option>
+                <option>Amalfi Coast</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="request-urgent">
+              <p class="urgent-title">Do you need an urgent consultation?</p>
+              <div class="urgent-options">
+                <label class="urgent-option">
+                  <input type="radio" name="urgent" value="Yes" />
+                  <span>Yes</span>
+                </label>
+
+                <label class="urgent-option">
+                  <input type="radio" name="urgent" value="No" checked />
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="request-field">
+              <textarea name="message" rows="4" placeholder="Write us how you feel..." required></textarea>
+            </div>
+
+            <label class="privacy-check">
+              <input type="checkbox" required />
+              <span>I read and accept the <a href="#" target="_blank">Privacy Policy</a></span>
+            </label>
+
+            <button type="submit" class="request-btn">Send Message</button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER 
+<footer class="footer-dark">
+  <div class="container footer-grid-dark">
+
+    <div class="footer-brand">
+      <div class="brand-icon">M</div>
+      <div>
+        <h3>Meditalia</h3>
+        <p>
+          Professional concierge medical services for international visitors,
+          expats, and residents across Italy.
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="telemedicine.html">Telemedicine</a></li>
+        <li><a href="home-hotel-visits.html">Home &amp; Hotel Visits</a></li>
+        <li><a href="medical-certificates.html">Medical Certificates</a></li>
+        <li><a href="diagnostic-testing.html">Diagnostic Testing</a></li>
+        <li><a href="preventive-checkups.html">Preventive Medicine</a></li>
+        <li><a href="wellness-specialty.html">Wellness Care</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="book-a-visit.html">Book a Visit</a></li>
+        <li><a href="services.html">All Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Contact</h4>
+      <ul class="contact-list">
+        <li>📞 +39 000 000 0000<br /><span>24/7 Emergency Line</span></li>
+        <li>✉️ info@meditalia.com</li>
+        <li>📍 Available across major Italian cities</li>
+        <li>🕒 Mon–Sat: 8:00 – 20:00<br /><span>Emergency: 24/7</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Meditalia · All rights reserved
+  </div>
+</footer>
+
+ ✅ SEARCH JS FILE -->
+<script src="search.js"></script>
+<div id="site-footer"></div>
+<script src="../includes.js"></script>
+
+</body>
+</html>
+
+
+<!-- Tabs JS -->
+<script>
+  const tabs = document.querySelectorAll(".pay-tab");
+  const panels = document.querySelectorAll(".pay-tab-panel");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      panels.forEach(p => p.classList.remove("active"));
+
+      tab.classList.add("active");
+      document.getElementById(tab.dataset.tab).classList.add("active");
+    });
+  });
+</script>
+
+</body>
+</html>

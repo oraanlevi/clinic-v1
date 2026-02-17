@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservar una Visita | Private Medical Clinic</title>
+
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div id="site-header"></div>
+
+  <!-- HERO -->
+  <section class="booking-hero booking-page">
+    <div class="container">
+      <div class="booking-hero-grid">
+
+        <!-- LEFT -->
+        <div class="booking-hero-left">
+          <p class="eyebrow">Acceso rápido a atención médica en Italia.</p>
+
+          <h1 class="page-title">Reservar una Visita</h1>
+
+          <p class="page-subtitle">
+            Elige tu servicio y paga de forma segura en línea. ¿Prefieres asistencia?
+            Envía una solicitud y nuestro equipo te contactará de inmediato.
+          </p>
+
+          <div class="booking-trust-row">
+            <div class="trust-pill"><i class="fa-solid fa-clock"></i> Disponibilidad 24/7</div>
+            <div class="trust-pill"><i class="fa-solid fa-language"></i> EN / IT / ES</div>
+            <div class="trust-pill"><i class="fa-solid fa-location-dot"></i> Varias Ciudades</div>
+          </div>
+
+          <!-- SMALL CONTACT STRIP -->
+          <div class="booking-contact-strip">
+            <a class="strip-link" href="tel:+390000000000">
+              <i class="fa-solid fa-phone"></i> Llamar
+            </a>
+            <a class="strip-link" href="https://wa.me/390000000000" target="_blank">
+              <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+            <a class="strip-link" href="mailto:bookings@meditalia.com">
+              <i class="fa-solid fa-envelope"></i> Email
+            </a>
+          </div>
+
+          <div class="booking-helper-card">
+            <p class="helper-title">¿Necesitas ayuda para elegir?</p>
+            <p class="helper-text">
+              Si no estás seguro/a de qué opción reservar (ciudad, urgencia o tipo de visita),
+              envía el formulario de solicitud y te guiaremos.
+            </p>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="booking-hero-right">
+
+          <!-- PAY CARD -->
+          <div class="pay-card">
+            <h2 class="pay-title">Pagar y Reservar</h2>
+            <p class="pay-subtitle">Pago seguro en línea a través de Stripe.</p>
+
+            <!-- Tabs -->
+            <div class="pay-tabs">
+              <button class="pay-tab active" type="button" data-tab="tab-telemedicine">Telemedicina</button>
+              <button class="pay-tab" type="button" data-tab="tab-clinic">Clínica</button>
+              <button class="pay-tab" type="button" data-tab="tab-home">Domicilio / Hotel</button>
+            </div>
+
+            <!-- TELEMEDICINE -->
+            <div class="pay-tab-panel active" id="tab-telemedicine">
+              <div class="pay-focus-card">
+                <div>
+                  <p class="pay-name">Consulta de Telemedicina</p>
+                  <p class="pay-desc">Consulta por video o teléfono</p>
+                </div>
+
+                <div class="pay-focus-right">
+                  <p class="pay-price"><span>€100</span></p>
+                  <a class="pay-btn primary" href="YOUR_STRIPE_TELEMEDICINE_LINK" target="_blank">
+                    Continuar
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- CLINIC -->
+            <div class="pay-tab-panel" id="tab-clinic">
+              <div class="pay-focus-card">
+                <div>
+                  <p class="pay-name">Visita de Médico General en Clínica</p>
+                  <p class="pay-desc">Consulta presencial en la clínica</p>
+                </div>
+
+                <div class="pay-focus-right">
+                  <p class="pay-price"><span>€80–€150</span></p>
+                  <a class="pay-btn primary" href="YOUR_STRIPE_GP_CLINIC_LINK" target="_blank">
+                    Continuar
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- HOME -->
+            <div class="pay-tab-panel" id="tab-home">
+              <p class="pay-mini-title">Selecciona un tipo de visita a domicilio</p>
+
+              <div class="pay-mini-grid">
+                <a class="pay-mini-card" href="YOUR_STRIPE_HOMEVISIT_DAY_LINK" target="_blank">
+                  <div class="pay-mini-top">
+                    <p class="pay-name">Visita a Domicilio (Día)</p>
+                    <p class="pay-desc">Visita médica en tu ubicación</p>
+                  </div>
+                  <div class="pay-mini-bottom">
+                    <span class="pay-price">€190–€300</span>
+                    <span class="pay-mini-cta">Continuar →</span>
+                  </div>
+                </a>
+
+                <a class="pay-mini-card" href="YOUR_STRIPE_HOMEVISIT_NIGHT_LINK" target="_blank">
+                  <div class="pay-mini-top">
+                    <p class="pay-name">Noche / Festivos</p>
+                    <p class="pay-desc">Urgente / fuera de horario</p>
+                  </div>
+                  <div class="pay-mini-bottom">
+                    <span class="pay-price">€250–€350+</span>
+                    <span class="pay-mini-cta">Continuar →</span>
+                  </div>
+                </a>
+
+                <a class="pay-mini-card" href="YOUR_STRIPE_PEDIATRIC_LINK" target="_blank">
+                  <div class="pay-mini-top">
+                    <p class="pay-name">Visita Pediátrica</p>
+                    <p class="pay-desc">Visita médica para niños</p>
+                  </div>
+                  <div class="pay-mini-bottom">
+                    <span class="pay-price">€250–€350</span>
+                    <span class="pay-mini-cta">Continuar →</span>
+                  </div>
+                </a>
+
+                <a class="pay-mini-card outline" href="YOUR_STRIPE_SPECIALIST_LINK" target="_blank">
+                  <div class="pay-mini-top">
+                    <p class="pay-name">Visita con Especialista</p>
+                    <p class="pay-desc">Reserva una consulta con especialista</p>
+                  </div>
+                  <div class="pay-mini-bottom">
+                    <span class="pay-price">€250–€400+</span>
+                    <span class="pay-mini-cta">Reservar →</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="pay-notes">
+              <p class="pay-note">
+                Los precios pueden variar según la ciudad, la urgencia, la hora del día, la distancia y el soporte de idioma.
+              </p>
+              <p class="pay-note">
+                Puede requerirse un depósito al reservar, y el saldo restante se paga después de la visita.
+                Es posible reprogramar o cancelar hasta 1 hora antes de la cita.
+              </p>
+            </div>
+          </div>
+
+          <!-- REQUEST FORM -->
+          <div class="request-card">
+            <div class="request-head">
+              <h2 class="request-title">Solicitar Asistencia</h2>
+              <p class="request-subtitle">Nos pondremos en contacto contigo lo antes posible.</p>
+            </div>
+
+            <form class="request-form" action="https://formspree.io/f/your-form-id" method="POST">
+              <div class="request-field">
+                <input type="text" name="name" placeholder="Nombre y Apellido" required />
+              </div>
+
+              <div class="request-row">
+                <div class="request-field">
+                  <input type="email" name="email" placeholder="Correo electrónico" required />
+                </div>
+
+                <div class="request-field">
+                  <input type="text" name="prefix" placeholder="Prefijo (ej: +1)" />
+                </div>
+
+                <div class="request-field">
+                  <input type="tel" name="phone" placeholder="Número de Teléfono" required />
+                </div>
+              </div>
+
+              <div class="request-field">
+                <select name="service" required>
+                  <option value="" selected disabled>¿Qué servicio necesitas?</option>
+                  <option>Telemedicina</option>
+                  <option>Visita en Clínica (Médico General)</option>
+                  <option>Visita a Domicilio (Día)</option>
+                  <option>Visita a Domicilio (Noche / Festivos)</option>
+                  <option>Visita Pediátrica</option>
+                  <option>Visita con Especialista</option>
+                  <option>No estoy seguro/a (ayúdame a elegir)</option>
+                </select>
+              </div>
+
+              <div class="request-field">
+                <select name="city">
+                  <option value="" selected disabled>Ciudad Preferida</option>
+                  <option>Roma</option>
+                  <option>Milán</option>
+                  <option>Florencia</option>
+                  <option>Venecia</option>
+                  <option>Nápoles</option>
+                  <option>Costa Amalfitana</option>
+                  <option>Otra</option>
+                </select>
+              </div>
+
+              <div class="request-urgent">
+                <p class="urgent-title">¿Necesitas una consulta urgente?</p>
+                <div class="urgent-options">
+                  <label class="urgent-option">
+                    <input type="radio" name="urgent" value="Yes" />
+                    <span>Sí</span>
+                  </label>
+
+                  <label class="urgent-option">
+                    <input type="radio" name="urgent" value="No" checked />
+                    <span>No</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="request-field">
+                <textarea name="message" rows="4" placeholder="Cuéntanos cómo te sientes..." required></textarea>
+              </div>
+
+              <label class="privacy-check">
+                <input type="checkbox" required />
+                <span>He leído y acepto la <a href="#" target="_blank">Política de Privacidad</a></span>
+              </label>
+
+              <button type="submit" class="request-btn">Enviar Mensaje</button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ SEARCH JS FILE -->
+  <script src="search.js"></script>
+  <div id="site-footer"></div>
+  <script src="../includes.js"></script>
+
+  <!-- Tabs JS -->
+  <script>
+    const tabs = document.querySelectorAll(".pay-tab");
+    const panels = document.querySelectorAll(".pay-tab-panel");
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        panels.forEach(p => p.classList.remove("active"));
+
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.tab).classList.add("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
