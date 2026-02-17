@@ -179,7 +179,6 @@ function initMobileDrawer() {
     });
   });
 }
-
 document.addEventListener("DOMContentLoaded", function () {
   const path = window.location.pathname.toLowerCase();
 
@@ -201,9 +200,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   loadPartial("site-header", headerPath).then(() => {
-    initMobileDrawer();          // drawer first (creates cloned links)
-    setLanguageLinksAndActive(); // now update language href + active in both
-    setActiveNav();              // now highlight active in both
+    setLanguageLinksAndActive();
+    setActiveNav();
   });
 
   loadPartial("site-footer", footerPath);

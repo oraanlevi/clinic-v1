@@ -2744,3 +2744,9 @@ img { max-width: 100%; height: auto; display: block; }
   }
 }
 
+/* remove hamburger */
+.mobile-menu-btn,
+.mobile-overlay,
+.mobile-drawer {
+  display: none !important;
+}
