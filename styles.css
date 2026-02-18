@@ -2753,99 +2753,63 @@ img { max-width: 100%; height: auto; display: block; }
 /* ===============================
    MOBILE HEADER FIX (mini desktop)
    =============================== */
-@media (max-width: 900px) {
-
-  /* keep header visible and above everything */
-  .site-header{
-    position: sticky;   /* if you used fixed before, this will override on mobile */
-    top: 0;
-    z-index: 9999;
-    background: #fff;
-  }
-
-  /* stack brand + nav + right section */
-  .site-header .header-inner{
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-
-  /* brand scales down a bit */
-  .site-header .brand{
-    font-size: 18px;
-    line-height: 1.2;
-  }
-
-  /* nav becomes scrollable row instead of getting cut off */
-  .site-header .nav-links{
-    width: 100%;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    gap: 10px;
-    padding-bottom: 4px;
-  }
-  .site-header .nav-links::-webkit-scrollbar{ display:none; }
-
-  .site-header .nav-links a{
-    white-space: nowrap;
-    flex: 0 0 auto;
-    font-size: 14px;
-    padding: 8px 10px;
-  }
-
-  /* right side wraps nicely */
-  .site-header .header-right{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-  }
-
-  /* CTA full width so it never disappears */
-  .site-header .header-cta{
-    width: 100%;
-    text-align: center;
-  }
-
-  /* dropdown menu should not fly off screen */
-  .site-header .dropdown-menu{
-    left: 0;
-    right: auto;
-    max-width: 92vw;
-  }
+/* Default: desktop */
+.mobile-menu,
+.mobile-menu-btn { 
+  display: none; 
 }
-/* ===== MOBILE HEADER MAKEOVER ===== */
-.mobile-menu, .mobile-menu-btn { display: none; }
 
+/* MOBILE */
 @media (max-width: 900px) {
 
-  /* simplify header */
+  /* Keep header visible and above page content */
   .site-header{
     position: sticky;
     top: 0;
-    z-index: 99999;
+    z-index: 10000;
     background: #fff;
+    display: block;
+    width: 100%;
   }
 
-  /* brand + menu button */
+  /* Header layout: brand left, button right */
   .site-header .header-inner{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 12px;
     padding: 12px 16px;
   }
 
-  /* hide desktop nav + language/cta in header area */
-  .site-header .nav-links{ display:none !important; }
-  .site-header .lang-toggle{ display:none !important; }
-  .site-header .header-cta{ display:none !important; }
+  /* Brand should ALWAYS show */
+  .site-header .brand{
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    max-width: 75%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-  /* show menu button */
+  /* Right side container stays visible */
+  .site-header .header-right{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Hide desktop nav + lang + CTA inside the header (but keep button) */
+  .site-header .nav-links{ 
+    display: none !important; 
+  }
+  .site-header .lang-toggle{ 
+    display: none !important; 
+  }
+  .site-header .header-cta{ 
+    display: none !important; 
+  }
+
+  /* Show menu button */
   .mobile-menu-btn{
     display: inline-flex;
     align-items: center;
@@ -2856,9 +2820,11 @@ img { max-width: 100%; height: auto; display: block; }
     border: 1px solid rgba(0,0,0,0.12);
     background: #fff;
     font-size: 18px;
+    line-height: 1;
+    z-index: 10001; /* above header background */
   }
 
-  /* full-screen menu overlay */
+  /* Mobile menu overlay should exist but NOT cover unless open */
   .mobile-menu{
     display: block;
     position: fixed;
@@ -2867,14 +2833,14 @@ img { max-width: 100%; height: auto; display: block; }
     opacity: 0;
     pointer-events: none;
     transition: opacity .2s ease;
-    z-index: 999999;
+    z-index: 20000; /* above header when open */
   }
   .mobile-menu.open{
     opacity: 1;
     pointer-events: auto;
   }
 
-  /* panel */
+  /* Panel (you’ll insert .mobile-menu-panel inside #mobileMenu via JS or HTML) */
   .mobile-menu-panel{
     position: absolute;
     top: 0;
@@ -2897,6 +2863,7 @@ img { max-width: 100%; height: auto; display: block; }
     justify-content:space-between;
     margin-bottom: 14px;
   }
+
   .mobile-close-btn{
     width: 42px;
     height: 42px;
@@ -2906,7 +2873,7 @@ img { max-width: 100%; height: auto; display: block; }
     font-size: 18px;
   }
 
-  /* language row inside menu */
+  /* Show language + nav + CTA INSIDE the mobile menu panel */
   .mobile-menu .lang-toggle{
     display:flex !important;
     gap: 10px;
@@ -2918,7 +2885,6 @@ img { max-width: 100%; height: auto; display: block; }
     border-bottom: 2px solid #d4eece;
   }
 
-  /* nav links inside menu */
   .mobile-menu .nav-links{
     display:flex !important;
     flex-direction:column;
@@ -2934,7 +2900,6 @@ img { max-width: 100%; height: auto; display: block; }
     font-weight: 700;
   }
 
-  /* CTA inside menu */
   .mobile-menu .header-cta{
     display:block !important;
     width:100%;
