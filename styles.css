@@ -3119,3 +3119,132 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 600;
   font-size: 14px;
 }
+/* ===== HERO CLEAN FIX ===== */
+
+.hero-video-full {
+  position: relative;
+  min-height: 100svh; /* better than vh on iPhone */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* soften overlay so text is readable but not dark */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.55)
+  );
+}
+
+/* remove blue glow effect */
+.hero-content .accent {
+  color: #4ea1ff;
+  text-shadow: none !important;
+}
+
+/* improve eyebrow visibility */
+.hero-eyebrow {
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* subtitle more readable */
+.hero-subtitle {
+  color: rgba(255,255,255,0.92);
+  font-size: 17px;
+  line-height: 1.5;
+  margin-top: 14px;
+}
+
+/* better spacing */
+.hero-content {
+  padding: 100px 20px 80px;
+  max-width: 650px;
+}
+
+/* ===== BUTTON LAYOUT FIX ===== */
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+/* ===== EMERGENCY BADGE CLEAN ===== */
+
+.hero-emergency {
+  bottom: 30px;
+  left: 20px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 16px 20px;
+}
+
+.hero-emergency p {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.hero-emergency a {
+  background: white;
+  color: #0b1b35;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* ===== MOBILE STACK FIX ===== */
+
+@media (max-width: 768px) {
+
+  .hero-content {
+    padding: 120px 24px 100px;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+    line-height: 1.15;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-emergency {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 30px;
+    width: fit-content;
+  }
+
+}
+/* MOBILE DROPDOWN FIX */
+@media (max-width: 768px) {
+
+  /* Hide dropdown by default */
+  .dropdown-menu {
+    display: none;
+  }
+
+  /* Show only when dropdown has .open */
+  .dropdown.open .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    width: 100%;
+  }
+
+}
