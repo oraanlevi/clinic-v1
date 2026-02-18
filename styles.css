@@ -3029,7 +3029,7 @@ img { max-width: 100%; height: auto; display: block; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.80; /* <-- transparency level */
+  opacity: 0.90; /* <-- transparency level */
 }
 
 /* Smart directional overlay (darker left, lighter right) */
@@ -3118,90 +3118,4 @@ img { max-width: 100%; height: auto; display: block; }
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
-}
-/* ===============================
-   MOBILE FIXES (iPhone)
-   Paste at BOTTOM of styles.css
-================================= */
-@media (max-width: 900px){
-
-  /* Make the hero FULL-BLEED (no boxed margins) */
-  .hero-video-full{
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-
-    /* don’t let the hero eat the entire page */
-    height: 70svh;
-    height: 70vh;
-    min-height: 520px;
-
-    border-radius: 0;
-  }
-
-  /* Keep video covering properly */
-  .hero-bg-video{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.72;
-  }
-
-  /* Stronger readability on mobile */
-  .hero-content{
-    padding: 86px 18px 26px;
-    max-width: 92vw;
-  }
-
-  .hero-content h1{
-    font-size: 34px;
-    line-height: 1.1;
-  }
-
-  .hero-subtitle{
-    font-size: 16px;
-    line-height: 1.5;
-    color: rgba(255,255,255,0.95);
-  }
-
-  /* Buttons stack nicely instead of cramping */
-  .hero-buttons{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: stretch;
-  }
-  .hero-buttons .btn{
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Emergency badge: full width + not covering buttons */
-  .hero-emergency{
-    left: 14px;
-    right: 14px;
-    bottom: 14px;
-    max-width: none;
-  }
-
-  /* Give the rest of the homepage breathing room */
-  .home-locations,
-  .home-section,
-  .home-services,
-  .home-final-cta{
-    padding-top: 54px;
-    padding-bottom: 54px;
-  }
-
-  /* Make service grid 1 column on mobile */
-  .home-services-grid{
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-  }
-
-  /* Make location grid 1 column on mobile (less cramped) */
-  .home-location-grid{
-    grid-template-columns: 1fr !important;
-    gap: 14px !important;
-  }
 }
