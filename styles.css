@@ -2958,3 +2958,28 @@ img { max-width: 100%; height: auto; display: block; }
   .site-header .lang-toggle{ display: none !important; }
   .site-header .header-cta{ display: none !important; }
 }
+/* IT MOBILE HEADER: always show brand + hamburger */
+@media (max-width: 900px){
+  #site-header header.site-header .header-inner{
+    display:flex !important;
+    justify-content:space-between !important;
+    align-items:center !important;
+  }
+  #site-header header.site-header .header-right{
+    display:flex !important;
+    align-items:center !important;
+  }
+  #site-header header.site-header .mobile-menu-btn{
+    display:inline-flex !important;
+    width:44px !important;
+    height:44px !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+  /* hide desktop items on mobile */
+  #site-header header.site-header nav.nav-links,
+  #site-header header.site-header .lang-toggle,
+  #site-header header.site-header .header-cta{
+    display:none !important;
+  }
+}
