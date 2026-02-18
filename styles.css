@@ -3119,3 +3119,40 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 600;
   font-size: 14px;
 }
+/* FORCE ONLY VIDEO HERO ON MOBILE */
+@media (max-width: 900px){
+
+  /* Hide old hero blocks if any still exist */
+  .hero{ display: none !important; }
+
+  /* Make video hero fill nicely on mobile */
+  .hero-video-full{
+    height: 78vh !important;
+    min-height: 520px !important;
+  }
+
+  .hero-content{
+    padding: 72px 18px 32px !important;
+    max-width: 92vw !important;
+  }
+
+  .hero-content h1{
+    font-size: 34px !important;
+  }
+
+  .hero-subtitle{
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+
+  .hero-buttons{
+    gap: 12px !important;
+  }
+
+  .hero-emergency{
+    left: 18px !important;
+    right: 18px !important;
+    bottom: 18px !important;
+    width: auto !important;
+  }
+}
