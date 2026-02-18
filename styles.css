@@ -2983,3 +2983,44 @@ img { max-width: 100%; height: auto; display: block; }
     display:none !important;
   }
 }
+/* SERVICES GRID — MOBILE FIX */
+@media (max-width: 900px){
+  .home-services-grid{
+    display: grid !important;
+    grid-template-columns: 1fr !important; /* 1 column on mobile */
+    gap: 14px !important;
+  }
+
+  .home-service-card{
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 16px !important;
+  }
+
+  .home-icon{
+    font-size: 22px;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .home-service-card h3{
+    margin: 0 0 6px;
+  }
+
+  .home-service-card p{
+    margin: 0 0 10px;
+  }
+}
+/* HERO VIDEO TEST */
+.hero-video{
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.hero-bg-video{
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
