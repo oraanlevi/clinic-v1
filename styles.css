@@ -2750,3 +2750,72 @@ img { max-width: 100%; height: auto; display: block; }
 .mobile-drawer {
   display: none !important;
 }
+/* ===============================
+   MOBILE HEADER FIX (mini desktop)
+   =============================== */
+@media (max-width: 900px) {
+
+  /* keep header visible and above everything */
+  .site-header{
+    position: sticky;   /* if you used fixed before, this will override on mobile */
+    top: 0;
+    z-index: 9999;
+    background: #fff;
+  }
+
+  /* stack brand + nav + right section */
+  .site-header .header-inner{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  /* brand scales down a bit */
+  .site-header .brand{
+    font-size: 18px;
+    line-height: 1.2;
+  }
+
+  /* nav becomes scrollable row instead of getting cut off */
+  .site-header .nav-links{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+    padding-bottom: 4px;
+  }
+  .site-header .nav-links::-webkit-scrollbar{ display:none; }
+
+  .site-header .nav-links a{
+    white-space: nowrap;
+    flex: 0 0 auto;
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  /* right side wraps nicely */
+  .site-header .header-right{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+  }
+
+  /* CTA full width so it never disappears */
+  .site-header .header-cta{
+    width: 100%;
+    text-align: center;
+  }
+
+  /* dropdown menu should not fly off screen */
+  .site-header .dropdown-menu{
+    left: 0;
+    right: auto;
+    max-width: 92vw;
+  }
+}
