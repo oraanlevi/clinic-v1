@@ -2911,3 +2911,50 @@ img { max-width: 100%; height: auto; display: block; }
     overflow: hidden;
   }
 }
+/* ===== MOBILE HEADER FIX (PASTE AT VERY BOTTOM) ===== */
+@media (max-width: 900px) {
+
+  /* make header visible + on top */
+  .site-header{
+    display: block !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 999999 !important;
+    background: #fff !important;
+  }
+
+  /* layout: brand left, hamburger right */
+  .site-header .header-inner{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+    padding: 12px 16px !important;
+  }
+
+  /* show brand + right side */
+  .site-header .brand{
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  .site-header .header-right{
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  /* show hamburger */
+  .site-header .mobile-menu-btn{
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  /* hide desktop stuff in header on mobile */
+  .site-header .nav-links{ display: none !important; }
+  .site-header .lang-toggle{ display: none !important; }
+  .site-header .header-cta{ display: none !important; }
+}
