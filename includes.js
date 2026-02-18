@@ -179,6 +179,62 @@ function initMobileDrawer() {
     });
   });
 }
+
+function initMobileMenu() {
+  const header = document.querySelector(".site-header");
+  const btn = document.querySelector(".mobile-menu-btn");
+  const menu = document.getElementById("mobileMenu");
+
+  if (!header || !btn || !menu) return;
+
+  // clone items into the menu
+  const nav = header.querySelector(".nav-links")?.cloneNode(true);
+  const lang = header.querySelector(".lang-toggle")?.cloneNode(true);
+  const cta = header.querySelector(".header-cta")?.cloneNode(true);
+
+  menu.innerHTML = `
+    <div class="mobile-menu-panel">
+      <div class="mobile-menu-top">
+        <span class="mobile-menu-title">Menu</span>
+        <button class="mobile-close-btn" type="button" aria-label="Close menu">✕</button>
+      </div>
+    </div>
+  `;
+
+  const panel = menu.querySelector(".mobile-menu-panel");
+  if (lang) panel.appendChild(lang);
+  if (nav) panel.appendChild(nav);
+  if (cta) panel.appendChild(cta);
+
+  // re-run active states for cloned links
+  setLanguageLinksAndActive();
+  setActiveNav();
+
+  const open = () => {
+    menu.classList.add("open");
+    menu.setAttribute("aria-hidden", "false");
+    document.body.classList.add("menu-open");
+  };
+
+  const close = () => {
+    menu.classList.remove("open");
+    menu.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("menu-open");
+  };
+
+  btn.addEventListener("click", open);
+  menu.addEventListener("click", (e) => {
+    if (e.target === menu) close();
+  });
+  menu.querySelector(".mobile-close-btn")?.addEventListener("click", close);
+
+  // close when clicking a link
+  menu.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if (a) close();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const path = window.location.pathname.toLowerCase();
 
@@ -199,10 +255,11 @@ document.addEventListener("DOMContentLoaded", function () {
     footerPath = "../partials/en/footer.html";
   }
 
-  loadPartial("site-header", headerPath).then(() => {
-    setLanguageLinksAndActive();
-    setActiveNav();
-  });
+ loadPartial("site-header", headerPath).then(() => {
+  setLanguageLinksAndActive();
+  setActiveNav();
+  initMobileMenu(); // NEW
+});
 
   loadPartial("site-footer", footerPath);
 });
