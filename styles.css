@@ -3609,3 +3609,19 @@ img { max-width: 100%; height: auto; display: block; }
   border-color: rgba(10,20,35,0.35);
   transform: translateY(-1px);
 }
+
+.brand{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.logo-icon{
+height:48px;
+width:auto;
+}
+
+.logo-text{
+height:38px;
+width:auto;
+}
