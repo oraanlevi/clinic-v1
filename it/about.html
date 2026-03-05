@@ -1,9 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chi siamo | Clinica Medica Privata</title>
+
+  <!-- SEO -->
+  <title>Chi siamo | Clinica Medica Privata Italia</title>
+  <meta name="description" content="Scopri la nostra clinica medica privata in Italia: missione, valori e approccio centrato sul paziente. Assistenza professionale a domicilio, in hotel e in clinica.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Optional: Share previews -->
+  <meta property="og:title" content="Chi siamo | Clinica Medica Privata Italia">
+  <meta property="og:description" content="Assistenza medica professionale e centrata sul paziente in Italia: missione, valori e servizi privati.">
+  <meta property="og:type" content="website">
+
+  <!-- Schema (domain/phone can be added later) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Clinica Medica Privata Italia",
+    "areaServed": { "@type": "Country", "name": "Italy" },
+    "availableLanguage": ["it", "en", "fr", "es"]
+  }
+  </script>
+
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -56,17 +77,22 @@
           </p>
         </div>
 
+        <!-- OPTIONAL CTA (matches your style) -->
+        <div class="card">
+          <h3>Hai bisogno di assistenza?</h3>
+          <p>Contattaci per informazioni sui servizi o per prenotare una visita.</p>
+          <a href="contact.html" class="btn primary">Contattaci</a>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  
-  <!-- JS -->
-   <div id="site-footer"></div>
-  <script src="search.js"></script>
-<script src="../includes.js"></script>
+  <div id="site-footer"></div>
 
+  <!-- JS -->
+  <script src="search.js"></script>
+  <script src="../includes.js"></script>
 </body>
 </html>
-

@@ -3,18 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us | Private Medical Clinic</title>
-<link rel="stylesheet" href="../styles.css">
+
+  <!-- SEO -->
+  <title>About Us | Private Medical Clinic Italy</title>
+  <meta name="description" content="Learn about our private medical clinic in Italy: our mission, values, and patient-first approach. Professional care at home, in hotels, and in-clinic.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Optional: Share previews -->
+  <meta property="og:title" content="About Us | Private Medical Clinic Italy">
+  <meta property="og:description" content="Professional, patient-centered medical care in Italy: our mission, values, and private services.">
+  <meta property="og:type" content="website">
+
+  <!-- Schema (domain/phone can be added later) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "Private Medical Clinic Italy",
+    "areaServed": { "@type": "Country", "name": "Italy" },
+    "availableLanguage": ["it", "en", "fr", "es"]
+  }
+  </script>
+
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
 
+  <!-- HEADER -->
   <div id="site-header"></div>
-  
 
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <h1>About Our Clinic</h1>
+      <h1>About Us</h1>
       <p>Professional, patient-centered medical care you can trust.</p>
     </div>
   </section>
@@ -26,10 +47,10 @@
 
         <!-- WHO WE ARE -->
         <div class="card">
-          <h3>Who We Are</h3>
+          <h3>Who we are</h3>
           <p>
             We are a private medical clinic dedicated to providing high-quality,
-            reliable healthcare services both at home and in a clinical setting.
+            reliable healthcare services—both at home and in-clinic.
             Our approach combines medical professionalism with a strong focus on
             patient comfort, discretion, and accessibility.
           </p>
@@ -37,17 +58,17 @@
 
         <!-- MISSION -->
         <div class="card">
-          <h3>Our Mission</h3>
+          <h3>Our mission</h3>
           <p>
-            Our mission is to deliver timely, effective medical care tailored to
-            each patient’s needs. We believe healthcare should be accessible,
-            transparent, and centered around trust and continuity of care.
+            Our mission is to deliver timely and effective medical care,
+            tailored to each patient’s needs. We believe healthcare should be
+            accessible, transparent, and built on trust and continuity of care.
           </p>
         </div>
 
         <!-- VALUES -->
         <div class="card">
-          <h3>Our Values</h3>
+          <h3>Our values</h3>
           <p>
             • Medical excellence and evidence-based practice<br />
             • Respect, confidentiality, and empathy<br />
@@ -55,14 +76,23 @@
             • Availability and continuity of care
           </p>
         </div>
-  </div>
-</section>
-        <!-- FOOTER -->
 
+        <!-- OPTIONAL CTA (matches your style) -->
+        <div class="card">
+          <h3>Need assistance?</h3>
+          <p>Contact us for service information or to book a visit.</p>
+          <a href="contact.html" class="btn primary">Contact Us</a>
+        </div>
 
-<script src="search.js"></script>
-<div id="site-footer"></div>
-<script src="../includes.js"></script>
+      </div>
+    </div>
+  </section>
 
+  <!-- FOOTER -->
+  <div id="site-footer"></div>
+
+  <!-- JS -->
+  <script src="search.js"></script>
+  <script src="../includes.js"></script>
 </body>
 </html>
