@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-label="Doctor Italy 24/7 hero poster">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1f35"/>
+      <stop offset="55%" stop-color="#1d3f66"/>
+      <stop offset="100%" stop-color="#345f86"/>
+    </linearGradient>
+    <linearGradient id="veil" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(7, 16, 28, 0.10)"/>
+      <stop offset="100%" stop-color="rgba(7, 16, 28, 0.45)"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <path d="M0 760 C300 640, 610 690, 900 770 C1210 860, 1500 840, 1920 700 L1920 1080 L0 1080 Z" fill="rgba(255,255,255,0.07)"/>
+  <path d="M0 840 C360 760, 760 850, 1080 920 C1430 998, 1680 970, 1920 900 L1920 1080 L0 1080 Z" fill="rgba(255,255,255,0.10)"/>
+  <rect width="1920" height="1080" fill="url(#veil)"/>
+</svg>
