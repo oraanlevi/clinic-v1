@@ -83,6 +83,108 @@ function setLanguageLinksAndActive() {
   });
 }
 
+function ensurePersistentHeaderActions() {
+  const header = document.querySelector(".site-header");
+  const headerInner = header?.querySelector(".header-inner");
+  if (!header || !headerInner) return;
+
+  let headerRight = header.querySelector(".header-right");
+  if (!headerRight) {
+    headerRight = document.createElement("div");
+    headerRight.className = "header-right";
+    headerInner.appendChild(headerRight);
+  }
+  headerRight.classList.add("header-actions");
+
+  const nav = header.querySelector(".nav-links");
+  const navCta = nav?.querySelector(".header-cta");
+  if (navCta) headerRight.appendChild(navCta);
+
+  const cta = header.querySelector(".header-cta");
+  if (cta && cta.parentElement !== headerRight) {
+    headerRight.appendChild(cta);
+  }
+
+  const menuBtn = header.querySelector(".mobile-menu-btn");
+  if (menuBtn && menuBtn.parentElement !== headerRight) {
+    headerRight.appendChild(menuBtn);
+  }
+}
+
+function enhanceInternalContentLinks() {
+  const isInternalHtmlHref = (href) => {
+    if (!href) return false;
+    const clean = cleanHref(href).toLowerCase();
+    if (!clean.endsWith(".html")) return false;
+    if (clean.startsWith("http://") || clean.startsWith("https://")) {
+      return clean.includes(window.location.host.toLowerCase());
+    }
+    return true;
+  };
+
+  const excludedAncestors = [
+    ".site-header",
+    ".site-footer",
+    "footer",
+    "nav",
+    ".nav-links",
+    ".dropdown-menu",
+    ".mobile-menu",
+    ".mobile-drawer",
+    ".lang-toggle",
+    ".home-location-grid",
+    ".home-location-card",
+    ".home-services-grid",
+    ".home-service-card",
+    ".home-hero-actions",
+    ".services-grid",
+    ".service-card",
+    ".service-button",
+    ".btn",
+    ".header-cta",
+    ".pay-mini-card",
+    ".pay-tabs",
+    ".contact-action-strip",
+  ].join(",");
+
+  const links = document.querySelectorAll('a[href$=".html"], a[href*=".html?"]');
+
+  links.forEach((link) => {
+    if (!isInternalHtmlHref(link.getAttribute("href"))) return;
+    if (link.closest(excludedAncestors)) return;
+    if (link.classList.contains("btn")) return;
+    if (link.classList.contains("service-button")) return;
+    if (link.classList.contains("home-service-card")) return;
+    if (link.classList.contains("header-cta")) return;
+    if (link.classList.contains("strip-link")) return;
+    if (link.closest("h1, h2, h3, h4, h5, h6")) return;
+
+    link.classList.add("content-link-premium");
+  });
+
+  const paragraphs = document.querySelectorAll("p");
+  paragraphs.forEach((p) => {
+    const directLinks = Array.from(p.children).filter(
+      (el) => el.tagName === "A" && el.classList.contains("content-link-premium")
+    );
+    if (directLinks.length < 2) return;
+
+    const clone = p.cloneNode(true);
+    clone.querySelectorAll("a").forEach((a) => a.remove());
+    const residual = (clone.textContent || "").replace(/\|/g, "").replace(/\s+/g, "").trim();
+    if (residual) return;
+
+    p.classList.add("content-link-group");
+
+    Array.from(p.childNodes).forEach((node) => {
+      if (node.nodeType !== Node.TEXT_NODE) return;
+      if ((node.textContent || "").includes("|")) {
+        node.textContent = " ";
+      }
+    });
+  });
+}
+
 function initMobileDrawer() {
   // prevent double init
   if (document.querySelector(".mobile-drawer")) return;
@@ -186,6 +288,11 @@ function initMobileMenu() {
   const menu = document.getElementById("mobileMenu");
 
   if (!header || !btn || !menu) return;
+  if (btn.dataset.mobileMenuInit === "1") return;
+  btn.dataset.mobileMenuInit = "1";
+
+  btn.setAttribute("aria-controls", "mobileMenu");
+  btn.setAttribute("aria-expanded", "false");
 
   // clone items into the menu
   const nav = header.querySelector(".nav-links")?.cloneNode(true);
@@ -206,6 +313,12 @@ function initMobileMenu() {
   if (nav) panel.appendChild(nav);
   if (cta) panel.appendChild(cta);
 
+  menu.querySelectorAll(".dropdown-toggle").forEach((toggle) => {
+    const dropdown = toggle.closest(".dropdown");
+    if (!dropdown) return;
+    toggle.setAttribute("aria-expanded", "false");
+  });
+
   // re-run active states for cloned links
   setLanguageLinksAndActive();
   setActiveNav();
@@ -213,29 +326,69 @@ function initMobileMenu() {
   const open = () => {
     menu.classList.add("open");
     menu.setAttribute("aria-hidden", "false");
+    btn.setAttribute("aria-expanded", "true");
     document.body.classList.add("menu-open");
   };
 
   const close = () => {
     menu.classList.remove("open");
     menu.setAttribute("aria-hidden", "true");
+    btn.setAttribute("aria-expanded", "false");
     document.body.classList.remove("menu-open");
   };
 
   btn.addEventListener("click", open);
-  menu.addEventListener("click", (e) => {
-    if (e.target === menu) close();
-  });
-  menu.querySelector(".mobile-close-btn")?.addEventListener("click", close);
 
-  // close when clicking a link
   menu.addEventListener("click", (e) => {
+    if (e.target === menu) {
+      close();
+      return;
+    }
+
+    if (e.target.closest(".mobile-close-btn")) {
+      close();
+      return;
+    }
+
+    const toggle = e.target.closest(".dropdown-toggle");
+    if (toggle) {
+      const dropdown = toggle.closest(".dropdown");
+      if (!dropdown) return;
+
+      const href = cleanHref(toggle.getAttribute("href") || "");
+      const isLinklessToggle = href === "" || href === "#";
+      const isOpen = dropdown.classList.contains("open");
+
+      if (!isOpen) {
+        e.preventDefault();
+        dropdown.classList.add("open");
+        toggle.setAttribute("aria-expanded", "true");
+        return;
+      }
+
+      if (isLinklessToggle) {
+        e.preventDefault();
+        dropdown.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        return;
+      }
+
+      close();
+      return;
+    }
+
     const a = e.target.closest("a");
     if (a) close();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
   });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  enhanceInternalContentLinks();
+
   const path = window.location.pathname.toLowerCase();
 
   let headerPath = "";
@@ -256,6 +409,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
  loadPartial("site-header", headerPath).then(() => {
+  ensurePersistentHeaderActions();
   setLanguageLinksAndActive();
   setActiveNav();
   initMobileMenu(); // NEW

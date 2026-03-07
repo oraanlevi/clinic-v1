@@ -58,19 +58,19 @@ h2{
 
 /* ---------- HEADER / NAV (modern glass) ---------- */
 header, nav, .nav, .navbar, .site-header{
-  background: rgba(0,0,0,0.28) !important;
+  background: #fff !important;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--glassBorder);
+  border-bottom: 1px solid rgba(15,23,42,0.12);
 }
 
 header a, nav a, .nav a, .navbar a, .site-header a{
-  color: rgba(255,255,255,0.88);
+  color: rgba(15,23,42,0.88);
   text-decoration: none;
   font-weight: 600;
 }
 header a:hover, nav a:hover, .nav a:hover, .navbar a:hover, .site-header a:hover{
-  color: #fff;
+  color: #0f172a;
 }
 
 /* ---------- BUTTONS ---------- */
