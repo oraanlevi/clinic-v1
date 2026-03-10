@@ -354,8 +354,27 @@
       <a class="btn primary" href="book-a-visit.html">Prenota una visita medica in Italia</a>
     </div>
   </section>
+  <section class="home-section reviews-home" id="reviews">
+    <div class="container">
+      <div class="center">
+        <div class="home-pill light">Recensioni</div>
+        <h2>Cosa dicono i pazienti</h2>
+        <p class="home-lead">Feedback verificati dei pazienti. Le recensioni vengono moderate prima della pubblicazione.</p>
+      </div>
+
+      <div id="reviews-list" class="reviews-grid" aria-live="polite"></div>
+      <p id="reviews-empty" class="reviews-empty">Nessuna recensione approvata al momento.</p>
+
+      <div class="center home-cta-row">
+        <a href="leave-review.html" class="btn secondary">Lascia una recensione</a>
+      </div>
+    </div>
+  </section>
 
   <div id="site-footer"></div>
+  <script src="../reviews-config.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="../reviews-display.js" defer></script>
   <script src="../includes.js" defer></script>
 
 </body>

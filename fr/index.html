@@ -353,8 +353,27 @@
       <a class="btn primary" href="book-a-visit.html">Reserver une visite medicale en Italie</a>
     </div>
   </section>
+  <section class="home-section reviews-home" id="reviews">
+    <div class="container">
+      <div class="center">
+        <div class="home-pill light">Avis</div>
+        <h2>Ce que disent nos patients</h2>
+        <p class="home-lead">Avis verifies des patients. Les avis sont moderes avant publication.</p>
+      </div>
+
+      <div id="reviews-list" class="reviews-grid" aria-live="polite"></div>
+      <p id="reviews-empty" class="reviews-empty">Aucun avis approuve pour le moment.</p>
+
+      <div class="center home-cta-row">
+        <a href="leave-review.html" class="btn secondary">Laisser un avis</a>
+      </div>
+    </div>
+  </section>
 
   <div id="site-footer"></div>
+  <script src="../reviews-config.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="../reviews-display.js" defer></script>
   <script src="../includes.js" defer></script>
 
 </body>

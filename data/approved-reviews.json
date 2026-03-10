@@ -1,0 +1,106 @@
+{
+  "en": [
+    {
+      "first_name": "Emma",
+      "last_initial": "R",
+      "city": "Florence",
+      "rating": 5,
+      "message": "Fast response and very clear communication. The doctor visit at our hotel was professional and reassuring.",
+      "service_type": "Hotel Visit"
+    },
+    {
+      "first_name": "Michael",
+      "last_initial": "T",
+      "city": "Milan",
+      "rating": 5,
+      "message": "Booking was simple and the consultation was thorough. We felt well supported from start to finish.",
+      "service_type": "Home Visit"
+    },
+    {
+      "first_name": "Laura",
+      "last_initial": "B",
+      "city": "Milan",
+      "rating": 4,
+      "message": "Helpful multilingual team and quick follow-up instructions after the visit.",
+      "service_type": "Telemedicine"
+    }
+  ],
+  "it": [
+    {
+      "first_name": "Giulia",
+      "last_initial": "M",
+      "city": "Firenze",
+      "rating": 5,
+      "message": "Servizio puntuale e molto professionale. Il medico e stato chiaro e disponibile.",
+      "service_type": "Visita in Hotel"
+    },
+    {
+      "first_name": "Luca",
+      "last_initial": "P",
+      "city": "Milano",
+      "rating": 5,
+      "message": "Prenotazione rapida e assistenza eccellente. Esperienza affidabile e discreta.",
+      "service_type": "Visita a Domicilio"
+    },
+    {
+      "first_name": "Sara",
+      "last_initial": "C",
+      "city": "Milano",
+      "rating": 4,
+      "message": "Ottimo supporto prima e dopo la visita, con indicazioni semplici da seguire.",
+      "service_type": "Telemedicina"
+    }
+  ],
+  "fr": [
+    {
+      "first_name": "Claire",
+      "last_initial": "D",
+      "city": "Florence",
+      "rating": 5,
+      "message": "Service rapide et tres professionnel. Le medecin a ete rassurant et precis.",
+      "service_type": "Visite a l hotel"
+    },
+    {
+      "first_name": "Nicolas",
+      "last_initial": "L",
+      "city": "Milan",
+      "rating": 5,
+      "message": "Reservation simple et tres bonne organisation. Nous avons recu un vrai suivi.",
+      "service_type": "Visite a domicile"
+    },
+    {
+      "first_name": "Sophie",
+      "last_initial": "R",
+      "city": "Milan",
+      "rating": 4,
+      "message": "Equipe multilingue efficace et consultation claire.",
+      "service_type": "Teleconsultation"
+    }
+  ],
+  "es": [
+    {
+      "first_name": "Ana",
+      "last_initial": "G",
+      "city": "Florencia",
+      "rating": 5,
+      "message": "Atencion muy profesional y rapida. La visita en el hotel fue clara y tranquila.",
+      "service_type": "Visita en Hotel"
+    },
+    {
+      "first_name": "Daniel",
+      "last_initial": "V",
+      "city": "Milan",
+      "rating": 5,
+      "message": "Reserva facil y excelente comunicacion durante todo el proceso.",
+      "service_type": "Visita a Domicilio"
+    },
+    {
+      "first_name": "Elena",
+      "last_initial": "P",
+      "city": "Milan",
+      "rating": 4,
+      "message": "Buen seguimiento despues de la consulta y explicaciones muy utiles.",
+      "service_type": "Telemedicina"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Lascia una recensione | Doctor Italy 24/7</title>
+  <meta name="description" content="Condividi la tua esperienza con Doctor Italy 24/7. Le recensioni vengono moderate prima della pubblicazione.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://doctoritaly247.com/it/leave-review.html" />
+  <link rel="alternate" hreflang="en" href="https://doctoritaly247.com/en/leave-review.html" />
+  <link rel="alternate" hreflang="it" href="https://doctoritaly247.com/it/leave-review.html" />
+  <link rel="alternate" hreflang="fr" href="https://doctoritaly247.com/fr/leave-review.html" />
+  <link rel="alternate" hreflang="es" href="https://doctoritaly247.com/es/leave-review.html" />
+  <link rel="alternate" hreflang="x-default" href="https://doctoritaly247.com/it/leave-review.html" />
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Doctor Italy 24/7">
+  <meta property="og:title" content="Lascia una recensione | Doctor Italy 24/7">
+  <meta property="og:description" content="Condividi la tua esperienza. Le recensioni sono moderate prima della pubblicazione.">
+  <meta property="og:url" content="https://doctoritaly247.com/it/leave-review.html">
+  <meta property="og:image" content="https://doctoritaly247.com/assets/hero-poster.svg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lascia una recensione | Doctor Italy 24/7">
+  <meta name="twitter:description" content="Condividi la tua esperienza. Le recensioni sono moderate prima della pubblicazione.">
+  <meta name="twitter:image" content="https://doctoritaly247.com/assets/hero-poster.svg">
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Lascia una recensione</h1>
+      <p>Il tuo feedback aiuta altri pazienti. Le recensioni vengono moderate prima della pubblicazione.</p>
+    </div>
+  </section>
+
+  <section class="home-section review-form-wrap">
+    <div class="container">
+      <form id="review-form" class="review-form" novalidate>
+        <div class="review-form-grid">
+          <label>Nome
+            <input type="text" name="first_name" autocomplete="given-name" required>
+          </label>
+          <label>Iniziale del cognome
+            <input type="text" name="last_initial" maxlength="1" required>
+          </label>
+          <label>Citta
+            <input type="text" name="city" autocomplete="address-level2" required>
+          </label>
+          <label>Lingua
+            <select name="language" required>
+              <option value="it">Italiano</option>
+              <option value="en">English</option>
+              <option value="fr">Francais</option>
+              <option value="es">Espanol</option>
+            </select>
+          </label>
+          <label>Valutazione (stelle)
+            <select name="rating" required>
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
+          </label>
+          <label>Tipo di servizio (opzionale)
+            <input type="text" name="service_type" maxlength="80">
+          </label>
+        </div>
+
+        <label>Messaggio recensione
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+
+        <label class="review-consent">
+          <input type="checkbox" name="consent" required>
+          <span>Confermo che questa recensione riflette una mia esperienza reale.</span>
+        </label>
+
+        <p id="review-form-status" class="review-form-status" aria-live="polite"></p>
+
+        <div class="home-cta-row">
+          <button type="submit" class="btn primary">Invia recensione</button>
+          <a href="index.html#reviews" class="btn secondary">Torna alle recensioni</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+
+  <script src="../reviews-config.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="../review-form.js" defer></script>
+  <script src="../includes.js" defer></script>
+</body>
+</html>
