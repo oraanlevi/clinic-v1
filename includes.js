@@ -74,10 +74,25 @@ function setLanguageLinksAndActive() {
   // include drawer language links too
   const langLinks = document.querySelectorAll(".lang-toggle a, .mobile-drawer .lang-toggle a");
 
+  const normalizeLangCode = (raw) => {
+    const key = (raw || "").toLowerCase().replace(/[^a-z]/g, "");
+    const aliases = {
+      en: "en",
+      english: "en",
+      it: "it",
+      italian: "it",
+      es: "es",
+      spanish: "es",
+      fr: "fr",
+      french: "fr",
+    };
+    return aliases[key] || "";
+  };
+
   langLinks.forEach(a => {
     a.classList.remove("active");
 
-    const code = (a.textContent || "").trim().toLowerCase();
+    const code = normalizeLangCode(a.getAttribute("data-lang")) || normalizeLangCode(a.textContent);
     if (langMap[code]) a.setAttribute("href", langMap[code]);
     if (code === currentLang) a.classList.add("active");
   });

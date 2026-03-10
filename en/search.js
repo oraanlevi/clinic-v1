@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
     { label: "Services", icon: "🩺", url: "services.html" },
 
     { label: "Telemedicine", icon: "💻", url: "telemedicine.html" },
-    { label: "Clinic Visit (GP)", icon: "🏥", url: "clinic-visits.html" },
-    { label: "Home / Hotel Visit", icon: "🏠", url: "home-hotel-visits.html" },
-    { label: "Pediatric Visit", icon: "👶", url: "home-hotel-visits.html" },
+    { label: "Home and Hotel Doctor", icon: "🏥", url: "home-doctor-italy.html" },
+    { label: "Home and Hotel Doctor", icon: "🏠", url: "home-doctor-italy.html" },
+    { label: "Specialty Pediatric Support", icon: "👶", url: "wellness-specialty.html" },
     { label: "Specialist Visit", icon: "⭐️", url: "wellness-specialty.html" },
     { label: "Medical Certificates", icon: "📄", url: "medical-certificates.html" },
     { label: "Diagnostic Testing", icon: "🧪", url: "diagnostic-testing.html" },

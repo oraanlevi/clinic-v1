@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Optional crawl hygiene
+Disallow: /*?*
+
+Sitemap: https://doctoritaly247.com/sitemap.xml

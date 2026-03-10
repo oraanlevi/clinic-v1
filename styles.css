@@ -1386,19 +1386,24 @@ section{
 
 /* CITY IMAGES (replace with your image file paths) */
 .city-rome{
-  background-image: url("rome.jpg");
+  background-image: url("assets/cities/rome-1400.jpg");
 }
 
 .city-milan{
-  background-image: url("milan.jpg");
+  background-image: url("assets/cities/milan-1400.jpg");
 }
 
 .city-florence{
-  background-image: url("florence.jpg");
+  background-image: url("assets/cities/florence-1400.jpg");
 }
 
 .city-venice{
-  background-image: url("venice.jpg");
+  background-image: url("assets/cities/venice-1400.jpg");
+}
+
+.home-location-card{
+  content-visibility: auto;
+  contain-intrinsic-size: 320px 220px;
 }
 
 /* Mobile */
@@ -4327,6 +4332,38 @@ width:auto;
   }
 }
 
+/* Keep header sections fitting on laptop widths after full language labels */
+@media (min-width: 1101px) and (max-width: 1600px) {
+  #site-header header.site-header > .container.header-inner {
+    gap: 10px !important;
+  }
+
+  #site-header header.site-header .nav-item,
+  #site-header header.site-header .dropdown-toggle {
+    font-size: 11px !important;
+    padding: 6px 7px !important;
+  }
+
+  #site-header header.site-header .header-right {
+    gap: 6px !important;
+  }
+
+  #site-header header.site-header .lang-toggle {
+    padding: 2px !important;
+    gap: 2px !important;
+  }
+
+  #site-header header.site-header .lang-item {
+    padding: 6px !important;
+    min-width: 30px;
+    justify-content: center;
+  }
+
+  #site-header header.site-header .lang-item .lang-code {
+    display: none;
+  }
+}
+
 /* Small mobile: keep top-right hamburger clear and uncluttered */
 @media (max-width: 860px) {
   .site-header .header-inner {
@@ -4961,4 +4998,35 @@ p.content-link-group .content-link-premium {
     border-radius: 999px !important;
     font-size: 12px !important;
   }
+}
+
+.seo-related-links{
+  padding: 28px 0 10px;
+}
+
+.seo-related-links .container{
+  border-top: 1px solid rgba(15,23,42,0.10);
+  padding-top: 22px;
+}
+
+.seo-related-links h2{
+  margin: 0 0 12px;
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+}
+
+.seo-related-links ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px 16px;
+}
+
+.seo-related-links a{
+  text-decoration: none;
+}
+
+.seo-related-links .btn{
+  margin-top: 16px;
 }
