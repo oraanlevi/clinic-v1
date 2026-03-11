@@ -22,7 +22,6 @@ For moderation at scale, create an internal admin page or use Supabase dashboard
 - sort by `created_at desc`
 
 ## 5) Static fallback data
-If Supabase is not configured or unavailable, homepage review sections use:
-- `data/approved-reviews.json`
-
-This keeps sections populated with safe placeholder approved reviews per language.
+If Supabase is not configured or unavailable:
+- Homepage review sections stay empty and show the localized empty state
+- No review cards are rendered until real approved reviews exist

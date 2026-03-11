@@ -2,19 +2,19 @@
   const labels = {
     en: {
       loading: "Loading approved patient reviews...",
-      empty: "No approved reviews yet."
+      empty: "No patient reviews have been published yet."
     },
     it: {
       loading: "Caricamento recensioni approvate...",
-      empty: "Nessuna recensione approvata al momento."
+      empty: "Non ci sono ancora recensioni pubblicate."
     },
     fr: {
       loading: "Chargement des avis approuves...",
-      empty: "Aucun avis approuve pour le moment."
+      empty: "Aucun avis patient n est publie pour le moment."
     },
     es: {
       loading: "Cargando resenas aprobadas...",
-      empty: "No hay resenas aprobadas por ahora."
+      empty: "Aun no hay resenas de pacientes publicadas."
     }
   };
 
@@ -103,21 +103,6 @@
     return article;
   }
 
-  async function fetchFallback(lang) {
-    try {
-      const res = await fetch("../data/approved-reviews.json", { cache: "no-store" });
-      if (!res.ok) return [];
-      const json = await res.json();
-      const rows = Array.isArray(json[lang]) ? json[lang] : [];
-      return rows
-        .map((row) => normalizeReview({ ...row, language: lang }, lang))
-        .filter(Boolean)
-        .slice(0, 6);
-    } catch (_) {
-      return [];
-    }
-  }
-
   async function fetchFromSupabase(lang) {
     const cfg = window.DOCTOR_REVIEWS_CONFIG || {};
     if (!cfg.supabaseUrl || !cfg.supabaseAnonKey) return [];
@@ -152,10 +137,7 @@
     empty.hidden = false;
     empty.textContent = t.loading;
 
-    let reviews = await fetchFromSupabase(lang);
-    if (!reviews.length) {
-      reviews = await fetchFallback(lang);
-    }
+    const reviews = await fetchFromSupabase(lang);
 
     list.innerHTML = "";
 

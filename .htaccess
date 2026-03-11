@@ -1,0 +1,10 @@
+# Redirect explicit index.html requests to clean folder URLs
+# Examples:
+# /index.html -> /
+# /it/index.html -> /it/
+
+RewriteEngine On
+
+# Only redirect direct requests for index.html (prevents rewrite loops)
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html(?:[\s?]|$) [NC]
+RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
