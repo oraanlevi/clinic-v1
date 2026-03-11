@@ -129,6 +129,27 @@
     const languageInput = form.querySelector("select[name='language']");
     if (languageInput) languageInput.value = lang;
 
+    const starButtons = Array.from(form.querySelectorAll(".star-btn"));
+    const ratingInput = form.querySelector("input[name='rating']");
+
+    const applyStarState = (rating) => {
+      const safe = Math.max(1, Math.min(5, Number(rating) || 5));
+      if (ratingInput) ratingInput.value = String(safe);
+      starButtons.forEach((btn) => {
+        const val = Number(btn.dataset.value);
+        const isActive = val <= safe;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+    };
+
+    if (starButtons.length && ratingInput) {
+      applyStarState(ratingInput.value || 5);
+      starButtons.forEach((btn) => {
+        btn.addEventListener("click", () => applyStarState(btn.dataset.value));
+      });
+    }
+
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
@@ -165,6 +186,7 @@
         } else {
           form.reset();
           if (languageInput) languageInput.value = lang;
+          if (starButtons.length && ratingInput) applyStarState(5);
           setStatus(statusEl, t.success, "success");
         }
       } catch (_) {

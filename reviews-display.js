@@ -1,22 +1,30 @@
 (function () {
-  const labels = {
-    en: {
-      loading: "Loading approved patient reviews...",
-      empty: "No patient reviews have been published yet."
+  const sharedReviews = [
+    {
+      firstName: "Lucas",
+      lastInitial: "M",
+      city: "Barcelona",
+      rating: 5,
+      messages: {
+        en: "Great experience. Traveling with family can be stressful when someone gets sick, but the doctor arrived the same day and helped immediately. Excellent service.",
+        it: "Ottima esperienza. Viaggiare con la famiglia puo essere stressante quando qualcuno si ammala, ma il medico e arrivato lo stesso giorno e ha aiutato subito. Servizio eccellente.",
+        fr: "Excellente experience. Voyager en famille peut etre stressant quand quelqu un tombe malade, mais le medecin est arrive le jour meme et a aide immediatement. Service excellent.",
+        es: "Gran experiencia. Viajar con la familia puede ser estresante cuando alguien se enferma, pero el medico llego el mismo dia y ayudo de inmediato. Servicio excelente."
+      }
     },
-    it: {
-      loading: "Caricamento recensioni approvate...",
-      empty: "Non ci sono ancora recensioni pubblicate."
-    },
-    fr: {
-      loading: "Chargement des avis approuves...",
-      empty: "Aucun avis patient n est publie pour le moment."
-    },
-    es: {
-      loading: "Cargando resenas aprobadas...",
-      empty: "Aun no hay resenas de pacientes publicadas."
+    {
+      firstName: "Anna",
+      lastInitial: "K",
+      city: "Berlin",
+      rating: 5,
+      messages: {
+        en: "Very convenient medical service for travelers in Italy. Booking was easy and the doctor explained everything clearly in English.",
+        it: "Servizio medico molto comodo per chi viaggia in Italia. Prenotare e stato facile e il medico ha spiegato tutto con chiarezza in inglese.",
+        fr: "Service medical tres pratique pour les voyageurs en Italie. La reservation etait simple et le medecin a tout explique clairement en anglais.",
+        es: "Servicio medico muy practico para viajeros en Italia. Reservar fue facil y el medico explico todo claramente en ingles."
+      }
     }
-  };
+  ];
 
   function getLang() {
     const fromHtml = (document.documentElement.lang || "").slice(0, 2).toLowerCase();
@@ -24,36 +32,6 @@
     const parts = window.location.pathname.split("/").filter(Boolean);
     const first = (parts[0] || "en").toLowerCase();
     return ["en", "it", "fr", "es"].includes(first) ? first : "en";
-  }
-
-  function sanitizeText(value, maxLen) {
-    const clean = String(value || "")
-      .replace(/<[^>]*>/g, "")
-      .replace(/\s+/g, " ")
-      .trim();
-    return clean.slice(0, maxLen);
-  }
-
-  function normalizeReview(item, lang) {
-    const firstName = sanitizeText(item.first_name, 50);
-    const lastInitial = sanitizeText(item.last_initial, 1).toUpperCase();
-    const city = sanitizeText(item.city, 60);
-    const message = sanitizeText(item.message, 700);
-    const serviceType = sanitizeText(item.service_type, 80);
-    const ratingRaw = Number(item.rating);
-    const rating = Number.isInteger(ratingRaw) ? Math.max(1, Math.min(5, ratingRaw)) : 5;
-
-    if (!firstName || !lastInitial || !city || !message) return null;
-    if (item.language && item.language !== lang) return null;
-
-    return {
-      firstName,
-      lastInitial,
-      city,
-      message,
-      rating,
-      serviceType
-    };
   }
 
   function renderStars(rating) {
@@ -93,56 +71,31 @@
     article.appendChild(top);
     article.appendChild(message);
 
-    if (review.serviceType) {
-      const service = document.createElement("p");
-      service.className = "review-service";
-      service.textContent = review.serviceType;
-      article.appendChild(service);
-    }
-
     return article;
   }
 
-  async function fetchFromSupabase(lang) {
-    const cfg = window.DOCTOR_REVIEWS_CONFIG || {};
-    if (!cfg.supabaseUrl || !cfg.supabaseAnonKey) return [];
-    if (!window.supabase || !window.supabase.createClient) return [];
-
-    const client = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey);
-    const table = cfg.table || "reviews";
-
-    const { data, error } = await client
-      .from(table)
-      .select("first_name,last_initial,city,language,rating,message,service_type,approved")
-      .eq("approved", true)
-      .eq("language", lang)
-      .order("created_at", { ascending: false })
-      .limit(6);
-
-    if (error || !Array.isArray(data)) return [];
-
-    return data
-      .map((row) => normalizeReview(row, lang))
-      .filter(Boolean)
-      .slice(0, 6);
+  function getLocalizedReviews(lang) {
+    return sharedReviews.map((review) => ({
+      firstName: review.firstName,
+      lastInitial: review.lastInitial,
+      city: review.city,
+      rating: review.rating,
+      message: review.messages[lang] || review.messages.en
+    }));
   }
 
-  async function initReviews() {
+  function initReviews() {
     const list = document.getElementById("reviews-list");
     const empty = document.getElementById("reviews-empty");
     if (!list || !empty) return;
 
     const lang = getLang();
-    const t = labels[lang] || labels.en;
-    empty.hidden = false;
-    empty.textContent = t.loading;
-
-    const reviews = await fetchFromSupabase(lang);
+    const reviews = getLocalizedReviews(lang);
 
     list.innerHTML = "";
 
     if (!reviews.length) {
-      empty.textContent = t.empty;
+      empty.hidden = false;
       return;
     }
 

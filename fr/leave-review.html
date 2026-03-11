@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="../styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"MedicalBusiness","@id":"https://doctoritaly24.it/#organization","name":"Doctor Italy 24/7","url":"https://doctoritaly24.it","description":"24/7 private medical services in Italy with English-speaking doctors, home and hotel visits, telemedicine, and diagnostics.","areaServed":{"@type":"Country","name":"Italy"},"availableLanguage":["en","it","fr","es"],"telephone":"+39 000 000 0000","email":"info@doctoritaly24.it","serviceType":["Doctor in Italy","English speaking doctor Italy","Private doctor Italy","Home visit doctor Italy","24/7 doctor Italy","Medical services Italy"],"availableService":[{"@type":"MedicalService","name":"24/7 Private Doctor Visits"},{"@type":"MedicalService","name":"Home and Hotel Doctor Visits"},{"@type":"MedicalService","name":"English-Speaking Medical Assistance"},{"@type":"MedicalService","name":"Telemedicine Consultations"},{"@type":"MedicalService","name":"Diagnostics and Medical Testing"}]},{"@type":"WebPage","@id":"https://doctoritaly24.it/fr/leave-review.html#webpage","url":"https://doctoritaly24.it/fr/leave-review.html","inLanguage":"fr"}]}</script>
 </head>
-<body>
+<body class="review-form-page">
   <div id="site-header"></div>
 
   <section class="hero">
@@ -60,14 +60,15 @@
               <option value="es">Espanol</option>
             </select>
           </label>
-          <label>Note (etoiles)
-            <select name="rating" required>
-              <option value="5">5</option>
-              <option value="4">4</option>
-              <option value="3">3</option>
-              <option value="2">2</option>
-              <option value="1">1</option>
-            </select>
+          <label class="review-rating">Note (etoiles)
+            <input type="hidden" name="rating" value="5" required>
+            <div class="rating-stars" aria-label="Selectionnez une note de 1 a 5 etoiles">
+              <button type="button" class="star-btn active" data-value="1" aria-label="1 etoile" aria-pressed="true">★</button>
+              <button type="button" class="star-btn active" data-value="2" aria-label="2 etoiles" aria-pressed="true">★</button>
+              <button type="button" class="star-btn active" data-value="3" aria-label="3 etoiles" aria-pressed="true">★</button>
+              <button type="button" class="star-btn active" data-value="4" aria-label="4 etoiles" aria-pressed="true">★</button>
+              <button type="button" class="star-btn active" data-value="5" aria-label="5 etoiles" aria-pressed="true">★</button>
+            </div>
           </label>
           <label>Type de service (optionnel)
             <input type="text" name="service_type" maxlength="80">
@@ -85,9 +86,9 @@
 
         <p id="review-form-status" class="review-form-status" aria-live="polite"></p>
 
-        <div class="home-cta-row">
-          <button type="submit" class="btn primary">Envoyer l avis</button>
-          <a href="index.html#reviews" class="btn secondary">Retour aux avis</a>
+        <div class="review-actions">
+          <button type="submit" class="btn primary-button review-action-btn">Envoyer l avis</button>
+          <a href="index.html#reviews" class="review-back-link">Retour aux avis</a>
         </div>
       </form>
     </div>

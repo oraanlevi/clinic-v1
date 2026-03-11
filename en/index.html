@@ -63,7 +63,6 @@
         English-speaking doctors. Hotel & home visits.
         Concierge medical support available 24/7.
       </p>
-      <p class="hero-medical-focus">Aesthetic and Regenerative Medicine</p>
 
       <h1>
         Doctor Italy 24/7
@@ -353,44 +352,31 @@
           <li><a href="telemedicine.html">Telemedicine consultations</a></li>
           <li><a href="contact.html">Contact medical concierge</a></li>
       </ul>
-      <a class="btn primary" href="book-a-visit.html">Book a medical visit in Italy</a>
+      <div class="services-cta">
+
+        <a class="btn primary" href="book-a-visit.html">Book a medical visit in Italy</a>
+
+      </div>
     </div>
   </section>
   <section class="home-section reviews-home" id="reviews">
     <div class="container">
       <div class="center">
-        <div class="home-pill light">Testimonials</div>
         <h2>Patient Experiences</h2>
         <p class="home-lead">Trusted feedback from patients and families who received care in Italy.</p>
       </div>
 
-      <div class="reviews-grid" aria-live="polite">
-        <article class="review-card">
-          <div class="review-card-top">
-            <p class="review-name">Lucas M.</p>
-            <p class="review-city">Barcelona</p>
-            <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
-          </div>
-          <p class="review-message">Great experience. Traveling with family can be stressful when someone gets sick, but the doctor arrived the same day and helped immediately. Excellent service.</p>
-        </article>
-
-        <article class="review-card">
-          <div class="review-card-top">
-            <p class="review-name">Anna K.</p>
-            <p class="review-city">Berlin</p>
-            <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
-          </div>
-          <p class="review-message">Very convenient medical service for travelers in Italy. Booking was easy and the doctor explained everything clearly in English.</p>
-        </article>
-      </div>
+      <div id="reviews-list" class="reviews-grid" aria-live="polite"></div>
+      <p id="reviews-empty" class="reviews-empty" hidden>No patient reviews have been published yet.</p>
 
       <div class="center home-cta-row">
-        <a href="leave-review.html" class="btn secondary">Leave a Review</a>
+        <a href="leave-review.html" class="btn secondary services-btn review-action-btn">Leave a Review</a>
       </div>
     </div>
   </section>
 
   <div id="site-footer"></div>
+  <script src="../reviews-display.js" defer></script>
   <script src="../includes.js" defer></script>
 
 </body>
